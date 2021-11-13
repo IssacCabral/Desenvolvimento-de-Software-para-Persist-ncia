@@ -1,7 +1,7 @@
 # Software development for persistence
 Here is my repository of studies and projects in software development for persistence.<br/>
 
-I have (or will soon have) projects on technologies:<br/>
+I have (or will soon have) projects on technologies:<br/><br/>
 <strong>Maven<br/>
 Spring Boot<br/>
 Lombok<br/>
