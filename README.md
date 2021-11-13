@@ -5,7 +5,7 @@ I have (or will soon have) projects on technologies:<br/>
 <strong>Maven<br/>
 Spring Boot<br/>
 Lombok<br/>
-#PostgreSql<br/>
+PostgreSql<br/>
 Relational Banks<br/>
 Non-relational banks<br/>
 Serialization of Objects<br/>
