@@ -28,10 +28,9 @@ public class AppConfig {
         try{
             InputStream is = AppConfig.class.getResourceAsStream("/config.properties");
             properties.load(is);
-            return properties;
         } catch (IOException ex){
             ex.printStackTrace();
-            return null;
         }
+        return properties;
     }
 }
