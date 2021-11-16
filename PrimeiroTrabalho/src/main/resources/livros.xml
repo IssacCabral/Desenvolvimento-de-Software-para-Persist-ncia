@@ -1,26 +1,14 @@
 <ArrayList>
   <item>
-    <titulo>O pequeno Principe</titulo>
+    <titulo>Livro 1</titulo>
     <isbn>123</isbn>
-    <editora>Editora Solar</editora>
-    <anoPublicacao>1997</anoPublicacao>
+    <editora>edit1</editora>
+    <anoPublicacao>1887</anoPublicacao>
   </item>
   <item>
-    <titulo>Sherlock Holmes</titulo>
+    <titulo>livro 2</titulo>
     <isbn>321</isbn>
-    <editora>Editora 2</editora>
-    <anoPublicacao>1500</anoPublicacao>
-  </item>
-  <item>
-    <titulo>Notridame</titulo>
-    <isbn>444</isbn>
-    <editora>edit</editora>
-    <anoPublicacao>1789</anoPublicacao>
-  </item>
-  <item>
-    <titulo>sei nao</titulo>
-    <isbn>seinao2</isbn>
-    <editora>seinaao3</editora>
-    <anoPublicacao>1234</anoPublicacao>
+    <editora>edit2</editora>
+    <anoPublicacao>1887</anoPublicacao>
   </item>
 </ArrayList>

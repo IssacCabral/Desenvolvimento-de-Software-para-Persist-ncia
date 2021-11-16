@@ -1,21 +1,11 @@
 [ {
-  "titulo" : "O pequeno Principe",
+  "titulo" : "Livro 1",
   "isbn" : "123",
-  "editora" : "Editora Solar",
-  "anoPublicacao" : "1997"
+  "editora" : "edit1",
+  "anoPublicacao" : "1887"
 }, {
-  "titulo" : "Sherlock Holmes",
+  "titulo" : "livro 2",
   "isbn" : "321",
-  "editora" : "Editora 2",
-  "anoPublicacao" : "1500"
-}, {
-  "titulo" : "Notridame",
-  "isbn" : "444",
-  "editora" : "edit",
-  "anoPublicacao" : "1789"
-}, {
-  "titulo" : "sei nao",
-  "isbn" : "seinao2",
-  "editora" : "seinaao3",
-  "anoPublicacao" : "1234"
+  "editora" : "edit2",
+  "anoPublicacao" : "1887"
 } ]
