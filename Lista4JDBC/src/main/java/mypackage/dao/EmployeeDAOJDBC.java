@@ -29,8 +29,8 @@ public class EmployeeDAOJDBC implements IEmployeeDAO{
             stmt.setString(5,employee.getTelefone());
             stmt.executeUpdate();
         } catch (SQLException e){
-            System.out.println("Não foi possível inserir o Funcionário");
             e.printStackTrace();
+            throw new DAOException("Não foi possível inserior o funcionário");
         }
     }
 
@@ -48,12 +48,13 @@ public class EmployeeDAOJDBC implements IEmployeeDAO{
             }
         } catch (SQLException e){
             e.printStackTrace();
+            throw new DAOException("Não foi possível carregar a lista de funcionários");
         }
         return employeeList;
     }
 
     @Override
-    public Employee listById(int id){
+    public Employee findById(int id){
         String sql = "SELECT id, cpf, matricula, nome, email, telefone " +
                      "FROM funcionario WHERE id = ?";
         Employee employee = null;
@@ -67,6 +68,7 @@ public class EmployeeDAOJDBC implements IEmployeeDAO{
             }
         } catch (SQLException e){
             e.printStackTrace();
+            throw new DAOException("Não foi possível carregar o funcionário");
         }
         return employee;
     }
@@ -87,6 +89,7 @@ public class EmployeeDAOJDBC implements IEmployeeDAO{
             stms.executeUpdate();
         } catch (SQLException e){
             e.printStackTrace();
+            throw new DAOException("Não foi possível atualizar");
         }
     }
 
@@ -99,8 +102,8 @@ public class EmployeeDAOJDBC implements IEmployeeDAO{
             stms.setInt(1,id);
             stms.executeUpdate();
         } catch (SQLException e){
-            System.out.println("Não foi possível deletar o funcionário");
             e.printStackTrace();
+            throw new DAOException("Não foi possível deletar o funcionario");
         }
     }
 

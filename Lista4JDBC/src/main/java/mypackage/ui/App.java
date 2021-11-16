@@ -13,8 +13,6 @@ import java.util.List;
 public class App {
     public static void main(String[] args) throws SQLException {
         IEmployeeDAO employeeDAO = new EmployeeDAOJDBC(ConnectionFactory.getConnection());
-        Employee e = employeeDAO.listById(7);
-        System.out.println(e);
 
         // CREATE
 //        Employee e = new Employee("224", 1113, "mateusin", "mateusin@hotmail.com", "99999");
@@ -28,7 +26,13 @@ public class App {
 
         //employeeDAO.update(1,"06555331330",5546,"Issac Cabral","issac@hotmail.com","8887776");
 
-        // DELETE
+
+        //employeeDAO.delete(11);
+
+        List<Employee> e = employeeDAO.listAll();
+        for(Employee employee: e){
+            System.out.println(employee);
+        }
 
     }
 }
