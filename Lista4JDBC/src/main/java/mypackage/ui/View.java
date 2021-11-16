@@ -67,7 +67,10 @@ public class View{
         while(true){
             String op = JOptionPane.showInputDialog(Menu.MENU);
 
-            if(op.equals("end")) break;
+            if(op.equals("end")) {
+                ConnectionFactory.getConnection().close();
+                break;
+            }
             switch (op){
                 case "create":
                     Employee e = createEmployee();
