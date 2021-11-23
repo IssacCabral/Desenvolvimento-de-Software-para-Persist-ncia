@@ -1,14 +1,14 @@
 package mypackage.ui;
 
-import mypackage.dao.EmployeeDAOJDBC;
 import mypackage.dao.IEmployeeDAO;
 import mypackage.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.stereotype.Service;
 
 import javax.swing.*;
 import java.util.List;
 
+@Service
 public class View {
     @Autowired
     private IEmployeeDAO employeeDAO;
@@ -57,46 +57,42 @@ public class View {
         return Integer.parseInt(id);
     }
 
-    public static void main(String[] args) throws Exception {
-        //SpringApplication.run(View.class, args);
-        SpringApplicationBuilder builder = new SpringApplicationBuilder(View.class);
-        builder.headless(false).run(args);
-    }
 
-    public void run(String... args) throws Exception {
-        while(true){
-            String op = JOptionPane.showInputDialog(Menu.MENU);
-
-            if(op.equals("end")) {
-                break;
-            }
-            switch (op){
-                case "create":
-                    Employee e = createEmployee();
-                    employeeDAO.create(e);
-                    break;
-                case "list":
-                    List<Employee> employeeList = employeeDAO.listAll();
-                    JOptionPane.showMessageDialog(null, showListEmployee(employeeList));
-                    break;
-                case "listbyid":
-                    listEmployeeById();
-                    break;
-                case "update":
-                    String[] tokens = updateEmployee();
-                    employeeDAO.update(
-                            Integer.parseInt(tokens[0]),
-                            tokens[1],
-                            Integer.parseInt(tokens[2]),
-                            tokens[3], tokens[4], tokens[5]);
-                    break;
-                case "delete":
-                    employeeDAO.delete(deleteEm());
-                    break;
-                default:
-                    JOptionPane.showMessageDialog(null,"Dados inválidos");
-                    break;
-            }
-        }
+    public void run() throws Exception {
+//        while(true){
+//            String op = JOptionPane.showInputDialog(Menu.MENU);
+//
+//            if(op.equals("end")) {
+//                break;
+//            }
+//            switch (op){
+//                case "create":
+//                    Employee e = createEmployee();
+//                    employeeDAO.create(e);
+//                    break;
+//                case "list":
+//                    List<Employee> employeeList = employeeDAO.listAll();
+//                    JOptionPane.showMessageDialog(null, showListEmployee(employeeList));
+//                    break;
+//                case "listbyid":
+//                    listEmployeeById();
+//                    break;
+//                case "update":
+//                    String[] tokens = updateEmployee();
+//                    employeeDAO.update(
+//                            Integer.parseInt(tokens[0]),
+//                            tokens[1],
+//                            Integer.parseInt(tokens[2]),
+//                            tokens[3], tokens[4], tokens[5]);
+//                    break;
+//                case "delete":
+//                    employeeDAO.delete(deleteEm());
+//                    break;
+//                default:
+//                    JOptionPane.showMessageDialog(null,"Dados inválidos");
+//                    break;
+//            }
+//        }
+        JOptionPane.showMessageDialog(null, "Cheguei aqui");
     }
 }
