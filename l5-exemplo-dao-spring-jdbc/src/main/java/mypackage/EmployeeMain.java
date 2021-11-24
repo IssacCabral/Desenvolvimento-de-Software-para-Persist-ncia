@@ -1,3 +1,5 @@
+package mypackage;
+
 import mypackage.ui.View;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,7 +14,7 @@ public class EmployeeMain implements CommandLineRunner {
     private View view;
 
     public static void main(String[] args) {
-        SpringApplicationBuilder builder = new SpringApplicationBuilder(EmployeeMain.class);
+        SpringApplicationBuilder builder = new SpringApplicationBuilder(mypackage.EmployeeMain.class);
         builder.headless(false).run(args);
     }
 

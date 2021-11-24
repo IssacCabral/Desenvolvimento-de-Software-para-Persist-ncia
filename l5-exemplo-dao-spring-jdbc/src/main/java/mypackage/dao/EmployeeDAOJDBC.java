@@ -1,6 +1,11 @@
 package mypackage.dao;
 
 import mypackage.model.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
@@ -13,98 +18,21 @@ import java.util.List;
 
 @Repository
 public class EmployeeDAOJDBC implements  IEmployeeDAO{
-
+    @Autowired
+    //private JdbcTemplate jdbcTemplate;
+    private NamedParameterJdbcTemplate jdbcTemplate;
     @Override
     public void create(Employee employee) {
-//        String sql = "INSERT INTO funcionario (cpf,matricula,nome,email,telefone)" +
-//                "VALUES" + "(?,?,?,?,?)";
-//        try{
-//            PreparedStatement stmt = this.connection.prepareStatement(sql);
-//            stmt.setString(1,employee.getCpf());
-//            stmt.setInt(2,employee.getMatricula());
-//            stmt.setString(3,employee.getNome());
-//            stmt.setString(4,employee.getEmail());
-//            stmt.setString(5,employee.getTelefone());
-//            stmt.executeUpdate();
-//        } catch (SQLException e){
-//            e.printStackTrace();
-//            throw new DAOException("Não foi possível inserior o funcionário");
-//        }
-    }
+        String sql = "INSERT INTO funcionario (cpf,matricula,nome,email,telefone)" +
+                "VALUES" + "(:cpf,:matricula,:nome,:email,:telefone)";
+        MapSqlParameterSource params = new MapSqlParameterSource()
+                .addValue("cpf", employee.getCpf())
+                .addValue("matricula", employee.getMatricula())
+                .addValue("nome", employee.getNome())
+                .addValue("email", employee.getEmail())
+                .addValue("telefone", employee.getTelefone());
 
-    @Override
-    public List<Employee> listAll() {
-//        String sql = "SELECT * FROM funcionario ORDER BY ID";
-//        List<Employee> employeeList = new ArrayList<>();
-//
-//        try{
-//            PreparedStatement stmt = this.connection.prepareStatement(sql);
-//            ResultSet rs = stmt.executeQuery();
-//            while(rs.next()){
-//                Employee employee = map(rs);
-//                employeeList.add(employee);
-//            }
-//        } catch (SQLException e){
-//            e.printStackTrace();
-//            throw new DAOException("Não foi possível carregar a lista de funcionários");
-//        }
-//        return employeeList;
-        return null;
-    }
-
-    @Override
-    public Employee findById(int id){
-//        String sql = "SELECT id, cpf, matricula, nome, email, telefone " +
-//                "FROM funcionario WHERE id = ?";
-//        Employee employee = null;
-//
-//        try{
-//            PreparedStatement stmt = this.connection.prepareStatement(sql);
-//            stmt.setInt(1,id);
-//            ResultSet rs = stmt.executeQuery();
-//            if(rs.next()){
-//                employee = map(rs);
-//            }
-//        } catch (SQLException e){
-//            e.printStackTrace();
-//            throw new DAOException("Não foi possível carregar o funcionário");
-//        }
-//        return employee;
-        return null;
-    }
-
-    @Override
-    public void update(Integer id,String cpf,Integer matricula,String nome,String email,String telefone){
-//        String sql = "UPDATE funcionario SET cpf = ?, matricula = ?, nome = ?, email = ?, telefone = ? WHERE id = ?";
-//
-//        try{
-//            PreparedStatement stms = this.connection.prepareStatement(sql);
-//            stms.setString(1, cpf);
-//            stms.setInt(2, matricula);
-//            stms.setString(3, nome);
-//            stms.setString(4, email);
-//            stms.setString(5, telefone);
-//            stms.setInt(6, id);
-//
-//            stms.executeUpdate();
-//        } catch (SQLException e){
-//            e.printStackTrace();
-//            throw new DAOException("Não foi possível atualizar");
-//        }
-    }
-
-    @Override
-    public void delete(int id) {
-//        String sql = "DELETE FROM funcionario WHERE id = ?";
-//
-//        try{
-//            PreparedStatement stms = this.connection.prepareStatement(sql);
-//            stms.setInt(1,id);
-//            stms.executeUpdate();
-//        } catch (SQLException e){
-//            e.printStackTrace();
-//            throw new DAOException("Não foi possível deletar o funcionario");
-//        }
+        jdbcTemplate.update(sql, params);
     }
 
     private Employee map(ResultSet rs) throws SQLException{
@@ -118,5 +46,45 @@ public class EmployeeDAOJDBC implements  IEmployeeDAO{
         );
         return employee;
     }
+
+    @Override
+    public List<Employee> listAll() {
+        String sql = "SELECT * FROM funcionario ORDER BY ID";
+        return jdbcTemplate.query(sql, (rs, rowNum) -> map(rs));
+    }
+
+    @Override
+    public Employee findById(int id){
+        String sql = "SELECT id, cpf, matricula, nome, email, telefone " +
+                     "FROM funcionario WHERE id = :id_";
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("id_", id);
+        return jdbcTemplate.queryForObject(sql, namedParameters, (rs, numRow) -> map(rs));
+    }
+
+    @Override
+    public void update(Integer id,String cpf,Integer matricula,String nome,String email,String telefone){
+        String sql = "UPDATE funcionario SET cpf = :cpf, matricula = :matricula, nome = :nome, " +
+                     "email = :email, telefone = :telefone WHERE id = :id";
+        MapSqlParameterSource params = new MapSqlParameterSource()
+                .addValue("cpf", cpf)
+                .addValue("matricula", matricula)
+                .addValue("nome", nome)
+                .addValue("email", email)
+                .addValue("telefone", telefone)
+                .addValue("id", id);
+
+        jdbcTemplate.update(sql, params);
+    }
+
+    @Override
+    public void delete(int id) {
+        String sql = "DELETE FROM funcionario WHERE id = :id";
+        MapSqlParameterSource params = new MapSqlParameterSource()
+                .addValue("id", id);
+        jdbcTemplate.update(sql, params);
+
+    }
+
+
 
 }

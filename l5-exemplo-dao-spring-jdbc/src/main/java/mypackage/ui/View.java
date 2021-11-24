@@ -57,42 +57,40 @@ public class View {
         return Integer.parseInt(id);
     }
 
-
     public void run() throws Exception {
-//        while(true){
-//            String op = JOptionPane.showInputDialog(Menu.MENU);
-//
-//            if(op.equals("end")) {
-//                break;
-//            }
-//            switch (op){
-//                case "create":
-//                    Employee e = createEmployee();
-//                    employeeDAO.create(e);
-//                    break;
-//                case "list":
-//                    List<Employee> employeeList = employeeDAO.listAll();
-//                    JOptionPane.showMessageDialog(null, showListEmployee(employeeList));
-//                    break;
-//                case "listbyid":
-//                    listEmployeeById();
-//                    break;
-//                case "update":
-//                    String[] tokens = updateEmployee();
-//                    employeeDAO.update(
-//                            Integer.parseInt(tokens[0]),
-//                            tokens[1],
-//                            Integer.parseInt(tokens[2]),
-//                            tokens[3], tokens[4], tokens[5]);
-//                    break;
-//                case "delete":
-//                    employeeDAO.delete(deleteEm());
-//                    break;
-//                default:
-//                    JOptionPane.showMessageDialog(null,"Dados inválidos");
-//                    break;
-//            }
-//        }
-        JOptionPane.showMessageDialog(null, "Cheguei aqui");
+        while(true){
+            String op = JOptionPane.showInputDialog(Menu.MENU);
+
+            if(op.equals("end")) {
+                break;
+            }
+            switch (op){
+                case "create":
+                    Employee e = createEmployee();
+                    employeeDAO.create(e);
+                    break;
+                case "list":
+                    List<Employee> employeeList = employeeDAO.listAll();
+                    JOptionPane.showMessageDialog(null, showListEmployee(employeeList));
+                    break;
+                case "listbyid":
+                    listEmployeeById();
+                    break;
+                case "update":
+                    String[] tokens = updateEmployee();
+                    employeeDAO.update(
+                            Integer.parseInt(tokens[0]),
+                            tokens[1],
+                            Integer.parseInt(tokens[2]),
+                            tokens[3], tokens[4], tokens[5]);
+                    break;
+                case "delete":
+                    employeeDAO.delete(deleteEm());
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null,"Dados inválidos");
+                    break;
+            }
+        }
     }
 }
