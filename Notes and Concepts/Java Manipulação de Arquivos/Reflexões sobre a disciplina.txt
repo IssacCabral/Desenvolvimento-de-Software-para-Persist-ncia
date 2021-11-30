@@ -1,0 +1,42 @@
+==================================================
+Reflexões sobre a disciplina...
+
+FUP > POO > FBD > DSPersist
+Desenvolvimento de Software para Persistência
+>> Desenvolvimento de Software para Web
+>> Desenvolvimento de Software para Disp. Móveis
+
+POO - Programação Orientada a Objetos
+  - Objetos em Java 
+        - POJO - Plain Java Old Objects
+            - Java Beans (atributos, gets, sets) > Lombok
+        - Estruturas de dados: List, Map, ...
+  - Serialização - memoria p/ 'disco'
+  - Desserialização - "disco" p/ memoria
+
+Formatos de arquivo:
+  Texto:
+  - CSV - Comma Separated Values
+  - TSV (Delimitador: Tab)
+  - XML (Lib: Jackson)
+         XmlMapper Object
+  - JSON (Lib: Jackson)
+       https://www.baeldung.com/jackson
+       https://www.baeldung.com/jackson-object-mapper-tutorial
+---
+       https://www.baeldung.com/jackson-xml-serialization-and-deserialization
+
+  Binários:
+  - Parquet (alta compressão)
+
+Backup (Dump) / Restore
+
+Dados Estruturados / Semi-estruturados / Não estruturados
+- Object Storage (princ. dados não estruturados: fotos, vídeos, áudios)
+Amazon S3, MinIO
+
+Boot - Inicialização
+Bootstrap(framework) - dar start
+Spring Boot / Spring Framework --> facilita inicializar uma aplicação web, 
+alguns passos/configurações automáticas que sem ele seria bastante trabalhoso
+   - Jackson (lib para lidar com JSON, XML, YAML, etc.)

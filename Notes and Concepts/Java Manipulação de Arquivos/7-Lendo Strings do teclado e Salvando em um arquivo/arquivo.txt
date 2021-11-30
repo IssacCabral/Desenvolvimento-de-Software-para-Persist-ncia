@@ -1,0 +1,6 @@
+Gravando no Arquivo
+gravando novamente
+gravando no arquivo
+
+ok
+end

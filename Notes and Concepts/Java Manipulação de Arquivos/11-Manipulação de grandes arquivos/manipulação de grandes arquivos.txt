@@ -1,0 +1,24 @@
+// Contar quantas linhas tem determinado arquivo
+wc -l big_file.csv 
+
+// Mostra as 3 primeiras linhas iniciais
+head -n 3 big_file.csv
+
+// Mostra as 3 ultimas linhas finais
+tail -n 3 big_file.csv
+
+// Sem nenhuma opção, o comando irá ler o conteúdo
+// do arquivo e exibi-lo no terminal
+cat arquivo.txt
+
+// Meio que faz buscas
+cat big_file.csv | less
+
+// Busca a String no arquivo
+cat big_file.csv | grep "52.2479 21.0191"
+
+sed "s/ /;/g" teste.txt
+
+awk '{ print $4 "," $5 }' teste.txt
+
+awk -F "," '{ print $4 "," $5 }' teste.csv
