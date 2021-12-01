@@ -37,8 +37,8 @@ public class View {
                     JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
                     break;
                 case "5":
-
-                    JOptionPane.showMessageDialog(null, "Email alterado com sucesso!");
+                    eJpa.delete(ControllerJPAEmployee.deleteEmployee());
+                    JOptionPane.showMessageDialog(null, "Deletado com sucesso!");
                     break;
                 default:
                     JOptionPane.showMessageDialog(null,"Dados inválidos");

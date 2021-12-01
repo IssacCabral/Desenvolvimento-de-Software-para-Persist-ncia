@@ -36,7 +36,7 @@ public class EmployeeJPADAO implements IEmployeeDAO{
                 Persistence.createEntityManagerFactory("dev");
         EntityManager em = emf.createEntityManager();
 
-        List<Employee> l = em.createQuery("from funcionario",
+        List<Employee> l = em.createQuery("from Employee",
                        Employee.class).getResultList();
         return l;
     }
