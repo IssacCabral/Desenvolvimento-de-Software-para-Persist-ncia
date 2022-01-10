@@ -8,7 +8,12 @@ public class MenuView {
             "4- Listar Todos estudantes\n" +
             "5- Listar Todas as disciplinas\n" +
             "6- Query View\n" +
-            "7- Sair do programa";
+            "7- Deletar Aluno\n" +
+            "8- Deletar Disciplina\n" +
+            "9- Atualizar Aluno\n" +
+            "10- Atualizar Disciplina\n" +
+            "11- Alunos tem disciplinas\n" +
+            "/- Sair do programa";
 
 }
 

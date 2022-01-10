@@ -15,10 +15,10 @@ public class Subject {
     @GeneratedValue(strategy = GenerationType.IDENTITY) @Getter @Setter private int id;
 
     @Column(unique = true)
-    @NonNull private String code;
+    @Getter @Setter @NonNull private String code;
 
     @Column(unique = true)
-    @NonNull private String name;
+    @Getter @Setter @NonNull private String name;
 
     @OneToMany(mappedBy = "subject", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Getter @Setter private List<StudentHasSubject> studentHasSubjects;

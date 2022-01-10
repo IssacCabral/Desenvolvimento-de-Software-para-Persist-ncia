@@ -15,7 +15,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
-
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) @Getter @Setter private int id;
@@ -37,8 +36,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
+        return  "id=" + id +
                 ", cpf='" + cpf + '\'' +
                 ", registration='" + registration + '\'' +
                 ", email='" + email + '\'' +
@@ -47,3 +45,4 @@ public class Student {
                 '}';
     }
 }
+

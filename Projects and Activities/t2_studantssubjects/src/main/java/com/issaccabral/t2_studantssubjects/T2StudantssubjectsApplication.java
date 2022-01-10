@@ -32,13 +32,5 @@ public class T2StudantssubjectsApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		view.run();
-		//studentRepository.save(new Student("124", "222", "maria@gmail.com", "Maria Doida", LocalDate.of(1995, 6, 14)));
-		//subjectRepository.save(new Subject("1", "Matemática"));
-		//studentHasSubjectRepository.save(new StudentHasSubject(2, 1));
-//		System.out.println(studentRepository.findByDate(LocalDate.of(1990, 6, 23)));
-//		System.out.println(studentRepository.findByEmail("issac@gmail.com"));
-//		System.out.println(studentRepository.findByCpfNamedQuery("123"));
-//		System.out.println(studentRepository.findByNameInitBy("Cli"));
-//		System.out.println(subjectRepository.findStudentsByCodeOfSubject("1"));
 	}
 }

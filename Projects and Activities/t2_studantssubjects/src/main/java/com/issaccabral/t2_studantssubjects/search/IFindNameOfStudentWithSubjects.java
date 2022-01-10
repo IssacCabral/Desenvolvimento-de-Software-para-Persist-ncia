@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface IFindNameOfStudentWithSubjects {
     String getName();
-    List<StudentHasSubject> getStudentCourses();
+    List<StudentHasSubject> getStudentHasSubjects();
 }

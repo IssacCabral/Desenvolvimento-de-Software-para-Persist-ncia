@@ -22,4 +22,28 @@ public class SubjectController {
         }
         return aux;
     }
+
+    public static String findStudentsByCodeOfSubject(SubjectRepository subjectRepository){
+        String codeSubject = JOptionPane.showInputDialog(null, "CÓDIGO DA DISCIPLINA");
+        String aux = "";
+        for(Student student : subjectRepository.findStudentsByCodeOfSubject(codeSubject)){
+            aux += student + "\n";
+        }
+        return aux;
+    }
+
+    public static int deleteSubject(SubjectRepository subjectRepository){
+        int idSubject = Integer.parseInt(JOptionPane.showInputDialog("ID DA DISCIPLINA A SER DELETADA"));
+        return idSubject;
+    }
+
+    public static void updateSubject(SubjectRepository subjectRepository){
+        int idSubject = Integer.parseInt(JOptionPane.showInputDialog("ID DA DISCIPLINA A SER DELETADA"));
+
+        String code = JOptionPane.showInputDialog("CODIGO");
+        String name = JOptionPane.showInputDialog("NOME");
+
+        subjectRepository.getById(idSubject).setCode(code);
+        subjectRepository.getById(idSubject).setName(name);
+    }
 }
